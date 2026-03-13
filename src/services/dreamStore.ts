@@ -3,8 +3,10 @@ import path from "path";
 import crypto from "crypto";
 import type { DreamAnalysis } from "@/types/dream";
 
-// Base data directory with clean subdirectory references
-const BASE_DATA_DIR = path.join(process.cwd(), ".data");
+// Use /tmp on Vercel (serverless), local .data otherwise
+const BASE_DATA_DIR = process.env.VERCEL
+    ? path.join("/tmp", ".data")
+    : path.join(process.cwd(), ".data");
 const DREAMS_DIR = path.join(BASE_DATA_DIR, "dreams");
 const STORIES_DIR = path.join(BASE_DATA_DIR, "stories");
 
