@@ -134,14 +134,14 @@ export default function Home() {
 
     return (
         <div className="max-w-3xl mx-auto px-4 pb-40">
-            <header className="sticky top-14 z-10 py-4 bg-background flex justify-between items-center">
-                <h1 className="text-2xl font-bold">夢語りチャット</h1>
+            <header className="sticky top-14 z-10 py-3 bg-background flex justify-between items-center">
+                <h1 className="text-lg sm:text-2xl font-bold whitespace-nowrap">夢語りチャット</h1>
                 {analysis && !txHash && (
                     <button
                         onClick={() => setAnalysis(null)}
-                        className="text-sm text-muted-foreground hover:underline"
+                        className="text-xs sm:text-sm text-muted-foreground hover:underline whitespace-nowrap ml-2"
                     >
-                        分析を閉じて会話に戻る
+                        会話に戻る
                     </button>
                 )}
             </header>
@@ -303,7 +303,7 @@ export default function Home() {
                                         handleSend();
                                     }
                                 }}
-                                placeholder="メッセージを入力...（Shift+Enterで改行）"
+                                placeholder="メッセージを入力..."
                                 className="flex-1 p-3 rounded-lg border bg-card focus:ring-2 focus:ring-primary outline-none shadow-sm resize-none overflow-hidden"
                                 style={{ height: "48px" }}
                                 disabled={isLoading}
