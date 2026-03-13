@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { fetchDreamsFromChain, generateStoryAction, recordStoryOnChain, refineStoryAction } from "@/app/actions";
+import { generateStoryAction, recordStoryOnChain, refineStoryAction } from "@/app/actions";
+import { loadDreamsFromLocal } from "@/services/clientDreamStore";
 import { Loader2, Sparkles, BookOpen, Check, ExternalLink, ChevronDown, Send, MessageCircle, User, Bot } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { DreamLog, GeneratedStory, StoryLog } from "@/types/dream";
@@ -45,17 +46,13 @@ export default function StoryPage() {
         }
     }, [feedbackInput]);
 
-    const loadDreams = async () => {
+    const loadDreams = () => {
         setIsLoading(true);
         setError(null);
 
         try {
-            const result = await fetchDreamsFromChain();
-            if (result.success) {
-                setDreams(result.dreams);
-            } else {
-                setError(result.error);
-            }
+            const dreams = loadDreamsFromLocal();
+            setDreams(dreams);
         } catch {
             setError("夢の読み込みに失敗しました");
         } finally {

@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { recordDreamOnChain, analyzeDreamAction, digDeeperAction } from "@/app/actions";
+import { saveDreamToLocal } from "@/services/clientDreamStore";
 import { Loader2, Send, Sparkles, User, Bot, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Message, DreamAnalysis } from "@/types/dream";
@@ -115,6 +116,7 @@ export default function Home() {
 
             if (result.success) {
                 setTxHash(result.hash);
+                saveDreamToLocal(dreamText, analysis, result.hash, "");
             } else {
                 setError(`${ERROR_MESSAGES.RECORD_FAILED}: ${result.error}`);
             }
