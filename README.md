@@ -1,36 +1,76 @@
 # Dream Story
 
+夢を語り、分析し、物語に変換し、ブロックチェーンに永久保存するアプリ。
+
+**Live Demo**: https://dream-story-roan.vercel.app
+
+## Features
+
+- **夢語りチャット** - AIと会話しながら夢の内容を引き出す
+- **夢分析** - 感情分析（ストレス・不安・喜び）と健康スコアを算出
+- **物語生成** - 複数の夢を素材に、AIが実験的な短編小説を創作。フィードバックで物語を磨ける
+- **ブロックチェーン記録** - 夢と物語をSymbol Testnetに永久保存。物語には元の夢のtxHashを埋め込み、来歴（プロヴェナンス）を証明
+
+## Tech Stack
+
+- **Frontend**: Next.js 16 / React 19 / TypeScript / Tailwind CSS 4
+- **AI**: Google Gemini 2.5 Flash
+- **Blockchain**: Symbol Testnet
+- **Validation**: Zod
+- **Deployment**: Vercel
+
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm
+
+### Setup
+
+```bash
+git clone https://github.com/NarumiKomaba/dream-story.git
+cd dream-story
+npm install
+```
+
+### Environment Variables
+
+`.env.local` を作成して以下を設定:
+
+```
+GEMINI_API_KEY=your_gemini_api_key
+SYMBOL_PRIVATE_KEY=your_symbol_testnet_private_key
+SYMBOL_NODE_URL=https://sym-test-01.opening-line.jp:3001
+```
+
+### Run
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+http://localhost:3000 をブラウザで開く。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Architecture
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+  app/
+    page.tsx          # 夢語りチャット（メインページ）
+    story/page.tsx    # 物語生成ページ
+    stories/page.tsx  # 物語一覧ページ
+    actions.ts        # Server Actions（AI呼び出し・ブロックチェーン記録）
+  services/
+    ai.ts             # Gemini AI サービス（分析・物語生成・改変）
+    dreamStore.ts     # サーバー側データ永続化
+    clientDreamStore.ts # クライアント側localStorage永続化
+  types/
+    dream.ts          # 型定義・Zodスキーマ
+  components/
+    Header.tsx        # 共通ヘッダー
+```
 
-## Learn More
+## License
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
