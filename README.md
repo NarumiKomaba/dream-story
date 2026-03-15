@@ -4,29 +4,29 @@
 
 **Live Demo**: https://dream-story-roan.vercel.app
 
-## Features
+## 機能
 
 - **夢語りチャット** - AIと会話しながら夢の内容を引き出す
 - **夢分析** - 感情分析（ストレス・不安・喜び）と健康スコアを算出
 - **物語生成** - 複数の夢を素材に、AIが実験的な短編小説を創作。フィードバックで物語を磨ける
 - **ブロックチェーン記録** - 夢と物語をSymbol Testnetに永久保存。物語には元の夢のtxHashを埋め込み、来歴（プロヴェナンス）を証明
 
-## Tech Stack
+## 技術スタック
 
-- **Frontend**: Next.js 16 / React 19 / TypeScript / Tailwind CSS 4
+- **フロントエンド**: Next.js 16 / React 19 / TypeScript / Tailwind CSS 4
 - **AI**: Google Gemini 2.5 Flash
-- **Blockchain**: Symbol Testnet
-- **Validation**: Zod
-- **Deployment**: Vercel
+- **ブロックチェーン**: Symbol Testnet
+- **バリデーション**: Zod
+- **デプロイ**: Vercel
 
-## Getting Started
+## セットアップ
 
-### Prerequisites
+### 前提条件
 
 - Node.js 18+
 - npm
 
-### Setup
+### インストール
 
 ```bash
 git clone https://github.com/NarumiKomaba/dream-story.git
@@ -34,7 +34,7 @@ cd dream-story
 npm install
 ```
 
-### Environment Variables
+### 環境変数
 
 `.env.local` を作成して以下を設定:
 
@@ -44,7 +44,7 @@ SYMBOL_PRIVATE_KEY=your_symbol_testnet_private_key
 SYMBOL_NODE_URL=https://sym-test-01.opening-line.jp:3001
 ```
 
-### Run
+### 起動
 
 ```bash
 npm run dev
@@ -52,7 +52,7 @@ npm run dev
 
 http://localhost:3000 をブラウザで開く。
 
-## Architecture
+## アーキテクチャ
 
 ```
 src/
@@ -71,6 +71,6 @@ src/
     Header.tsx        # 共通ヘッダー
 ```
 
-## License
+## ライセンス
 
 MIT
