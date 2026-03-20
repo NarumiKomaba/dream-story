@@ -4,6 +4,8 @@
 
 **デモサイト**: https://dream-story-roan.vercel.app
 
+**動画デモ**: https://youtube.com/shorts/eQF9Rldwv7Q
+
 ## 概要
 
 Dream Story は、AIと会話しながら夢を記録・分析し、複数の夢を素材に実験的な短編小説を創作、ブロックチェーンに永久保存するアプリです。
