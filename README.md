@@ -28,6 +28,10 @@ Dream Story は、AIと会話しながら夢を記録・分析し、複数の夢
 
 ## アーキテクチャ
 
+### システム構成図
+<img width="1012" height="652" alt="image" src="https://github.com/user-attachments/assets/854f8337-4e03-457d-88a8-63b0a4c8305b" />
+
+### シーケンス図
 ```mermaid
 sequenceDiagram
     participant User as ユーザー
